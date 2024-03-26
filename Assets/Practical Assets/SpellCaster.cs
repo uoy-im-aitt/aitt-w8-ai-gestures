@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using InteractML;
 
 public class SpellCaster : MonoBehaviour
 {
+    [PullFromIMLGraph]
     public int spellToCast = 0;
     
     public Color[] spells;
