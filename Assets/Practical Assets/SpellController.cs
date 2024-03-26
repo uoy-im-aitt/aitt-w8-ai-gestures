@@ -10,9 +10,6 @@ public class SpellController : MonoBehaviour
     private Vector3 target;
     private float speed;
 
-    
-
-    // Update is called once per frame
     void Update()
     {
         if(Vector3.Distance(transform.position, target) < DestroyDistance)
@@ -35,5 +32,8 @@ public class SpellController : MonoBehaviour
 
         ParticleSystem.MainModule spellParticles = GetComponentInChildren<ParticleSystem>().main;
         spellParticles.startColor = color;
+
+        TrailRenderer spellTrail = GetComponentInChildren<TrailRenderer>();
+        spellTrail.material.SetColor("_EmissionColor", color);
     }
 }
