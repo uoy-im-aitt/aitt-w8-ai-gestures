@@ -10,6 +10,11 @@ public class SpellController : MonoBehaviour
     private Vector3 target;
     private float speed;
 
+    void Start()
+    {
+        Cursor.visible = false;  
+    }
+
     void Update()
     {
         if(Vector3.Distance(transform.position, target) < DestroyDistance)
