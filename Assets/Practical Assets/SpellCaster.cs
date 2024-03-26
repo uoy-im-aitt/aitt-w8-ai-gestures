@@ -24,6 +24,10 @@ public class SpellCaster : MonoBehaviour
             {
                 spellToCast = i+1;
             }
+            else if(Input.GetKeyUp(KeyCode.Alpha1 + i))
+            {
+                spellToCast = 0;
+            }
         }
      
         if(spellToCast != lastSpell)
@@ -35,10 +39,13 @@ public class SpellCaster : MonoBehaviour
 
     void CastSpell()
     {
-        GameObject spellObj = Instantiate(spellPrefab);
-        spellObj.transform.position = spawnPoint.transform.position;
+        if(spellToCast != 0)
+        {
+            GameObject spellObj = Instantiate(spellPrefab);
+            spellObj.transform.position = spawnPoint.transform.position;
 
-        SpellController controller = spellObj.GetComponent<SpellController>();
-        controller.Init(target, spellMovementSpeed, spells[spellToCast-1]);
+            SpellController controller = spellObj.GetComponent<SpellController>();
+            controller.Init(target, spellMovementSpeed, spells[spellToCast-1]);
+        }
     }
 }
