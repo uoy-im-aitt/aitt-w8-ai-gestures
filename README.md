@@ -87,6 +87,24 @@ What interaction feels more satisfying: position-based gestures or velocity-base
 
 ## Task 5: More Complex Gesture Recognition using Dynamic Time Warping
 
+Wouldn’t it be cool if we could train our model to learn even more complex gestures? For example, what if we could cast one spell by making a circle with the wand tip by moving it up and down three times? This isn’t possible with the basic classification model we’re currently using in IML because it only considers single values (e.g. a position or a velocity). What we need instead is a machine learning model that can be trained on a series of positions representing a complex gesture.
+
+In IML it is possible to use an alternative machine learning model called `Dynamic Time Warping` (DTW) to train a model that recognizes time series data (e.g. lots of positions one after the other). You can find out more about what DTW is and how it works [here]( https://www.theaidream.com/post/dynamic-time-warping-dtw-algorithm-in-time-series#:~:text=In%20time%20series%20analysis%2C%20Dynamic,similar%20elements%20between%20time%20series).
+
+In this task, you should adapt the `SpellGestureGraph` to use a `Dynamic Time Warping` model instead. To start off with let’s replace the classification model that we’ve got in our graph with DTW. Follow these steps to do this:
+ 
+1)	Remove the `Velocity` box you created in the last task. You can train a DTW model based on velocity, but let’s start with position to keep things simple.
+2)	Delete the current `Teach the Machine` and `Machine Learning System` boxes with new boxes that enable you to train and run a DTW model. You can create these by right clicking and choosing `Interact ML > Teach the Machine > TTM DTW` and `Interact ML > Machine Learning System > MLS DTW`.
+3)	Connect up these boxes in the same way they were connected in the prior graph. If you can’t remember what should connect to what, the picture in task 1 should help.
+
+There’s are a couple of differences we need to consider when training a model using time series data.
+
+-  When we record an example gesture we need record many position values over time, instead of just one. We can adapt our graph to do this by changing the drop-down menu in the `Keyboard Input` box to `Hold`. If we do this, then our new DTW `Teach the Machine` box will record an example gesture for the whole time we hold down the space bar.
+- We also need to tell the DTW `Machine Learning System` when we are performing a gesture that we want it to try and detect. A simple way to do this would be to only have the machine learning system try and detect a gesture when the mouse is held down. To make your graph work this way, make a connection between the `mouseHeld` output of the `SpellCaster(Script)` box and the green dot next to the `Populate` button on your DTW `Machine Learning System` box.
+
+If this works, you should be able to record examples of complex gestures by holding down the space bar while you perform them. Then, once you’ve trained your model, cast spells by performing those gestures while holding down the mouse!
+
+See if you can make a different gesture for every spell (e.g. a circle, a triangle, a swipe etc.). Does the system get confused between certain gestures? Does showing more examples help?
 
 ## Optional Extension: Gestures in VR
 
