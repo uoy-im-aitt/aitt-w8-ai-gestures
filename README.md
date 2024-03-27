@@ -19,7 +19,24 @@ The keyboard based interaction works. But wouldn't it be cool if we could cast t
 
 ## Task 2: Exploring an InteractML Graph
 
+In the practical today, we are going to learn to use InteractML (IML) in order to control the simple spellcasting game using gestures detected via machine learning. IML is toolkit that is designed to allow designers and artists to use machine learning more easily and without using much code. You can find more about it [here](https://interactml.com).
 
+To help you get started, I’ve created a simple IML graph that can be used to ‘train’ and ‘detect’ simple gestures based on the position of a game object. In this task, we’re going to look at this graph to understand how it works. To get started, click on the `IML System` game object in the hierarchy. Then, find the `IML Component` in the inspector and double click on the `SpellGestureGraph` asset in the `Graph` box. A new window should open that looks like this.
+
+![imlgraph](https://github.com/uoy-im-aitt/aitt-w8-ai-gestures/assets/2250660/bd08a20b-e26e-4228-8789-2807a3eb5522)
+
+Let's talk through some of the main bits of this graph and what they do:
+
+- The `Game Object` box represents a particular game object in our scene that we want IML to learn something about. In this case, I’ve associated this box with an invisible game object at the tip of the wizard’s wand.
+- The `Position` box extracts the position of this game object as three `x, y, z` coordinates. This is the actual data that we will use to train our machine learning model.
+- The `Teach the Machine` box allows us to train a machine learning model based on a set of example position values extracted from the game object. You see that there is a line connecting the position of our game object to an input called Live Data In.
+- The leftmost `Integer` box allows us to simply specify a label that should be associated with a particular gesture you want the machine learning model to recognize. This is connected to the `Teach the Machine` box to tell it which gesture you’re currently showing it an example of.
+- The `Keyboard Input` box let’s us send a message to another box when a key is pressed. You can choose which key using the drop down boxes. In this case, the box is setup so a space bar causes the `Teach the Machine` box to record one example and associate it with label specified by the `Integer` box.
+- The `Machine Learning System` box is the actual machine learning model that you train to do the gesture recognition. Once you’ve shown enough examples to the `Teach the Machine` box, you can press it’s `Train Model` and it’ll try to learn what you’ve shown it. Then you can press it’s `Run` button and it’ll begin recognizing.
+- The rightmost `Integer` box shows the label of the gesture that’s been recognized. For example, if the model has detected you’ve just done the gesture you called 1, a 1 will appear here.
+- Finally, the `Spellcaster(Script)` box represents a script in our scene that is send the label of the gesture that’s been recognized. It’ll then cast the right spell.
+
+Spend some time exploring the graph to see if you can understand what it does and how. If it doens't make sense yet, don't worry. Things will be clearer once we start using the graph to train our game to recognize gestures.
 
 ## Task 3: A Simple Position-based Gesture Recognizer
 
