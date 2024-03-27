@@ -399,7 +399,7 @@ MonoBehaviour:
   numberInComponentList: -1
   GameObjectDataOut: {fileID: 0}
   state: 1
-  GOHashCode: 34726
+  GOHashCode: 62070
   CreatedDuringPlaymode: 0
 --- !u!114 &-3406915153033204053
 MonoBehaviour:
@@ -575,7 +575,7 @@ MonoBehaviour:
   ReceivingData: 0
   FeatureValueReceivingData: 00
   InputConnected: 0
-  Counter: 0
+  Counter: 5
   Count: 5
   ToggleSwitches: 01
   ReceivedValue:
@@ -597,6 +597,7 @@ MonoBehaviour:
   ports:
     keys:
     - spellToCast
+    - mouseHeld
     values:
     - _fieldName: spellToCast
       _node: {fileID: -245974605465288414}
@@ -610,12 +611,42 @@ MonoBehaviour:
       _connectionType: 0
       _typeConstraint: 0
       _dynamic: 1
+    - _fieldName: mouseHeld
+      _node: {fileID: -245974605465288414}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
   id: c6b01730-08e9-416a-a0a3-4c084a06b385
   numberInComponentList: -1
   m_ScriptInternal: {fileID: 0}
-  ScriptHashCode: 34750
+  ScriptHashCode: 62094
   m_PortsPerFieldInfo:
-    m_keys: []
+    m_keys:
+    - _fieldName: mouseHeld
+      _node: {fileID: -245974605465288414}
+      _typeQualifiedName: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
+    - _fieldName: spellToCast
+      _node: {fileID: -245974605465288414}
+      _typeQualifiedName: System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      connections:
+      - fieldName: m_Out
+        node: {fileID: 3218667142783135017}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 1
   CreatedDuringPlaymode: 0
 --- !u!114 &11400000
 MonoBehaviour:
@@ -687,8 +718,8 @@ MonoBehaviour:
   id: 4ff2d910-22e7-4037-8583-b56b51641d0f
   numberInComponentList: -1
   ReceivingData: 0
-  FeatureValueReceivingData: 010101
-  Counter: 0
+  FeatureValueReceivingData: 000000
+  Counter: 5
   Count: 5
   ToggleSwitches: 010101
   ReceivedValue: []
@@ -753,7 +784,7 @@ MonoBehaviour:
   ReceivingData: 0
   FeatureValueReceivingData: 00
   InputConnected: 1
-  Counter: 0
+  Counter: 5
   Count: 5
   ToggleSwitches: 01
   ReceivedValue:

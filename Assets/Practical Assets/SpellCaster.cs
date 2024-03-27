@@ -7,6 +7,9 @@ using InteractML;
 
 public class SpellCaster : MonoBehaviour
 {
+    [SendToIMLGraph]
+    public bool mouseHeld = false;
+
     [PullFromIMLGraph]
     public int spellToCast = 0;
     
@@ -17,6 +20,11 @@ public class SpellCaster : MonoBehaviour
     public GameObject spellPrefab;
 
     private int lastSpell = 0;
+
+    void Start()
+    {
+        Cursor.visible = false;  
+    }
 
     void Update()
     {
@@ -36,6 +44,19 @@ public class SpellCaster : MonoBehaviour
         {
             lastSpell = spellToCast;
             CastSpell();
+        }
+
+        if(mouseHeld)
+        {
+            mouseHeld = false;
+        }
+        if(Input.GetMouseButtonDown(0))
+        {
+            mouseHeld = true;
+        }
+        else if(Input.GetMouseButtonUp(0))
+        {
+            mouseHeld = true;
         }
     }
 
