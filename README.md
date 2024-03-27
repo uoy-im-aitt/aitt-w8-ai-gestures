@@ -40,6 +40,39 @@ Spend some time exploring the graph to see if you can understand what it does an
 
 ## Task 3: A Simple Position-based Gesture Recognizer
 
+Now we’ve seen what the main bits of the IML graph are, let’s use it to train our first gesture recognition machine learning model! 
+
+Let’s start by training the model to associate the label `0` with the wand resting in a central position. Follow these steps to do this:
+
+1) Check that the value in the leftmost `Integer` box is set to `0`
+2) Run the game and click within the game view
+3) Move the wand so that it is broadly in a central position
+4) Press the spacebar button (this will record an example)
+5) Move the wand so its in a slightly different central position
+6) Press the spacebar again
+7) Repeat until you’ve recorded about 10 examples of this
+
+Now let’s train the to associate the label `1` with the wand pointing to the top-left corner of the screen. Follow these similar steps to do this:
+
+1) Check that the value in the leftmost `Integer` box is set to `1`
+2) Move the wand so that it is pointing up to the top left
+3) Press the spacebar to record an example
+4) Repeat for 10 or so examples of top-left-pointing positions
+
+Now let’s train our model based on that data. To do this follow these steps:
+
+1)	Click the train `Train Model` button
+2)	Press the `Run` button
+
+Now return to the game. You should find that when you point the wand toward the top left the Red `1` spell is case, whereas if you move the wand back to the middle nothing happens.
+
+To complete the task, train the model so that:
+
+- The Red `1` spell is cast in the top-left
+- The Green `2` spell is cast in the top-right
+- The Purple `3` spell is cast in the bottom-right
+- The Yellow `4` spell is cast in the bottom-left
+- No spell (i.e. label `0`) is cast when the wand is in the middle
 
 ## Task 4: Adapting the Recognizer to Detect Gestures based on Velocity
 
