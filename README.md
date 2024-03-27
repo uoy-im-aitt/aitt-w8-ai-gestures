@@ -76,6 +76,15 @@ To complete the task, train the model so that:
 
 ## Task 4: Adapting the Recognizer to Detect Gestures based on Velocity
 
+Now you you’ve trained a model that I’ve built, let’s see if you can make one of your own. In this task, you should adapt the `SpellGestureGraph` so that instead of triggering spells based on the position of the wand, it triggers then when the wand moves with a certain velocity and in a certain direction. 
+
+Here are some tips to help you do this:
+
+- You can train an IML model based on the velocity of an object instead of its position by adding a `Velocity` box between the existing `Position` box and the `Teach the Machine` and `Machine Learning Model` boxes. You can create one of these by right clicking and choosing `InteractML > Game Object Movement Features > Velocity`.
+- You’ll need to reset your training examples and model so it doesn’t get confused by the position examples you’ve already shown it. Press the `Delete All Recordings` and `Reset Model` buttons to do this.
+
+What interaction feels more satisfying: position-based gestures or velocity-based?
+
 ## Task 5: More Complex Gesture Recognition using Dynamic Time Warping
 
 
