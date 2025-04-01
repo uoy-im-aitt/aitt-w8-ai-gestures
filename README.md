@@ -92,7 +92,7 @@ What interaction feels more satisfying: position-based or velocity-based gesture
 
 Wouldn’t it be cool if we could train our model to learn even more complex gestures? For example, what if we could cast one spell by making a circle with the wand tip, and another by moving it up and down three times? This isn’t possible with the basic classification model we’re currently using in our IML graph, because it only considers single values (e.g. one labelled position value per example). What we need instead is a machine learning model that can be trained on a series of positions representing a more complex gesture.
 
-In IML it is possible to use an alternative machine learning approach called `Dynamic Time Warping` (DTW) to train a model that recognizes time series data (e.g. lots of positions one after the other). You can find out more about what DTW is and how it works [here]( https://www.theaidream.com/post/dynamic-time-warping-dtw-algorithm-in-time-series#:~:text=In%20time%20series%20analysis%2C%20Dynamic,similar%20elements%20between%20time%20series).
+In IML it is possible to use an alternative machine learning approach called `Dynamic Time Warping` (DTW) to train a model that recognizes time series data (e.g. lots of positions one after the other). You can find out more about what DTW is and how it works [here](https://rtavenar.github.io/blog/dtw.html).
 
 In this task, you should adapt the `SpellGestureGraph` to use a `Dynamic Time Warping` approach instead. To start off with let’s replace the classification model that we’ve got in our graph with DTW. Follow these steps to do this:
  
